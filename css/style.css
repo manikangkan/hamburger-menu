@@ -1,0 +1,85 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  background: #f1f1f1;
+  height: 100vh;
+}
+
+.container {
+  width: 30rem;
+  height: 20rem;
+  background: white;
+  border-radius: 2rem;
+  -webkit-box-shadow: 5rem -5rem 20rem #e4e4e4;
+          box-shadow: 5rem -5rem 20rem #e4e4e4;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+}
+
+.bar {
+  width: 5rem;
+  height: 0.8rem;
+  border-radius: 1rem;
+  background-color: #3f3f3f;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.bar::before, .bar::after {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  height: 0.8rem;
+  border-radius: 1rem;
+  background-color: #3f3f3f;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.bar::before {
+  -webkit-transform: translateY(-1.5rem);
+          transform: translateY(-1.5rem);
+}
+
+.bar::after {
+  -webkit-transform: translateY(1.5rem);
+          transform: translateY(1.5rem);
+}
+
+/* Animation */
+.wrapper.open .bar {
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  background: transparent;
+}
+
+.wrapper.open .bar::before {
+  -webkit-transform: rotate(45deg) translate(35px, -35px);
+          transform: rotate(45deg) translate(35px, -35px);
+}
+
+.wrapper.open .bar::after {
+  -webkit-transform: rotate(-45deg) translate(35px, 35px);
+          transform: rotate(-45deg) translate(35px, 35px);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,77 @@
+$bg: #f1f1f1;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin dg {
+  display: grid;
+  place-content: center;
+}
+
+body {
+  @include dg;
+  background: $bg;
+  height: 100vh;
+}
+
+.container {
+  width: 30rem;
+  height: 20rem;
+  background: lighten($bg, 10);
+  border-radius: 2rem;
+  box-shadow: 5rem -5rem 20rem darken($bg, 5);
+  @include dg;
+}
+
+.wrapper {
+  @include dg;
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+}
+
+.bar {
+  width: 5rem;
+  height: 0.8rem;
+  border-radius: 1rem;
+  background-color: darken($bg, 70);
+  transition: all 0.5s ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 0.8rem;
+    border-radius: 1rem;
+    background-color: darken($bg, 70);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.bar::before {
+  transform: translateY(-1.5rem);
+}
+
+.bar::after {
+  transform: translateY(1.5rem);
+}
+
+/* Animation */
+.wrapper.open {
+  .bar {
+    transform: translateX(-50px);
+    background: transparent;
+  }
+  .bar::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .bar::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+}
